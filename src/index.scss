@@ -1,3 +1,9 @@
+// #00356b
+// #1b1513
+// #010100
+$orange: #ff7227;
+$text-color: #1b1513;
+
 html {
   font-size: 62.5%;
   box-sizing: border-box;
@@ -13,6 +19,17 @@ html {
 
 body {
   font-size: 1.6rem;
+  color: $text-color;
+  font-family: 'Oswald', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Pattaya', serif;
 }
 
 ul,
@@ -31,18 +48,14 @@ img {
   width: 100%;
   max-width: 100%;
 }
-
-// SASS Variables.
-$text: #fff;
-$background: #00356b;
-
 canvas {
   display: block;
   vertical-align: bottom;
 }
 
 #particles-js {
-  background: $background;
+  z-index: -1;
+  background: #1b1513;
   position: fixed !important;
   left: 0;
   top: 0;
@@ -50,15 +63,44 @@ canvas {
   height: 100%;
 }
 
-.text {
+// .main-container {
+//   max-width: 114rem;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   margin: auto;
+// }
+
+.sidebar {
+  border-radius: 0.5rem;
+  background-color: #fff;
   position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
-  color: $text;
-  max-width: 90%;
-  padding: 2em 3em;
-  background: rgba(0, 0, 0, 0.4);
-  text-shadow: 0px 0px 2px #131415;
-  font-family: 'Open Sans', sans-serif;
+  top: 7rem;
+  left: 50%;
+  transform: translateX(-35vw);
+  max-width: 25rem;
+}
+
+.header {
+  border-radius: 0.5rem;
+  background-color: #fff;
+  position: absolute;
+  top: 7rem;
+  left: 50%;
+  width: 80rem;
+  height: 10rem;
+  transform: translateX(-16vw);
+}
+
+.main {
+  border-radius: 0.5rem;
+  background-color: #fff;
+  position: absolute;
+  top: 21.5rem;
+  left: 50%;
+  width: 80rem;
+  height: 50rem;
+  transform: translateX(-16vw);
 }
