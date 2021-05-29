@@ -1,9 +1,23 @@
+import { useState, useLayoutEffect } from 'react';
+import useWindowSize from './hooks/useWindowSize';
 import { Switch, Route } from 'react-router-dom';
 import Particles from 'react-particles-js';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 
 function App() {
+  const [width] = useWindowSize();
+  const [style, setStyle] = useState({
+    top: '20rem',
+    left: width / 2 - 800 / 2 + 180,
+  });
+
+  useLayoutEffect(() => {
+    setStyle({
+      top: '20rem',
+      left: width / 2 - 800 / 2 + 180,
+    });
+  }, [width]);
   return (
     <>
       <Particles
@@ -118,13 +132,7 @@ function App() {
       <div className="main-container">
         <Header />
         <Sidebar />
-        <main
-          style={{
-            top: '20rem',
-            left: window.innerWidth / 2 - 800 / 2 + 180,
-          }}
-          className="main"
-        >
+        <main style={style} className="main">
           <Switch></Switch>
         </main>
       </div>
