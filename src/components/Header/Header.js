@@ -7,13 +7,13 @@ const Header = () => {
   const [width] = useWindowSize();
   const [style, setStyle] = useState({
     top: '5rem',
-    left: width / 2 - 800 / 2 + 180,
+    left: width / 2 - 800 / 2 + 165,
   });
 
   useLayoutEffect(() => {
     setStyle({
       top: '5rem',
-      left: width / 2 - 800 / 2 + 180,
+      left: width / 2 - 800 / 2 + 165,
     });
   }, [width]);
 

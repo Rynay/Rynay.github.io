@@ -1,23 +1,29 @@
-import { useState, useLayoutEffect } from 'react';
+import { useState, useLayoutEffect, lazy, Suspense } from 'react';
 import useWindowSize from './hooks/useWindowSize';
 import { Switch, Route } from 'react-router-dom';
 import Particles from 'react-particles-js';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 
+const About = lazy(() => import('./pages/About'));
+const Resume = lazy(() => import('./pages/Resume'));
+const Portfolio = lazy(() => import('./pages/Portfolio'));
+const Contact = lazy(() => import('./pages/Contact'));
+
 function App() {
   const [width] = useWindowSize();
   const [style, setStyle] = useState({
-    top: '20rem',
-    left: width / 2 - 800 / 2 + 180,
+    top: '14rem',
+    left: width / 2 - 800 / 2 + 165,
   });
 
   useLayoutEffect(() => {
     setStyle({
-      top: '20rem',
-      left: width / 2 - 800 / 2 + 180,
+      top: '14rem',
+      left: width / 2 - 800 / 2 + 165,
     });
   }, [width]);
+
   return (
     <>
       <Particles
@@ -133,7 +139,19 @@ function App() {
         <Header />
         <Sidebar />
         <main style={style} className="main">
-          <Switch></Switch>
+          <div className="container">
+            <Suspense fallback={<div></div>}>
+              <Switch>
+                <Route path="/" exact>
+                  <About />
+                </Route>
+                <Route path="/resume" component={Resume} />
+                <Route path="/portfolio" component={Portfolio} />
+                <Route path="/contact" component={Contact} />
+              </Switch>
+            </Suspense>
+          </div>
+          <div style={{ height: '5rem' }}></div>
         </main>
       </div>
     </>
