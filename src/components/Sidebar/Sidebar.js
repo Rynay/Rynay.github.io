@@ -2,7 +2,14 @@ import { FaInfo } from 'react-icons/fa';
 
 const Sidebar = () => {
   return (
-    <section className="sidebar">
+    <section
+      style={{
+        top: '5rem',
+        left: `${(window.innerWidth / 2 - 800 / 2) / 10}rem`,
+        transform: 'translateX(-50%)',
+      }}
+      className="sidebar"
+    >
       <div className="sidebar__header">
         <h1 className="sidebar__name">Madison Marshall</h1>
         <p className="sidebar__job">Frontend Developer</p>

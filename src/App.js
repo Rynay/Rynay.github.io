@@ -118,7 +118,13 @@ function App() {
       <div className="main-container">
         <Header />
         <Sidebar />
-        <main className="main">
+        <main
+          style={{
+            top: '20rem',
+            left: window.innerWidth / 2 - 800 / 2 + 180,
+          }}
+          className="main"
+        >
           <Switch></Switch>
         </main>
       </div>
