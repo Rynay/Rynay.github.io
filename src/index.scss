@@ -348,3 +348,110 @@ canvas {
     position: relative;
   }
 }
+
+.options {
+  display: flex;
+  margin-bottom: 1em;
+
+  &__right {
+    margin-left: auto;
+    padding-left: 1em;
+    & > *:not(:last-child) {
+      margin-right: 0.05em;
+    }
+  }
+
+  button {
+    cursor: pointer;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25rem;
+    font-weight: bold;
+  }
+
+  &__sort {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 0.25em;
+
+      svg {
+        height: 1rem;
+        width: 1rem;
+      }
+    }
+
+    &--1 {
+      color: $orange;
+      background-color: $text-color;
+      border: 0.2rem ridge $orange;
+    }
+    &--2 {
+      color: $text-color;
+      background-color: $orange;
+      border: 0.2rem ridge $text-color;
+    }
+  }
+
+  &__filter {
+    &--1 {
+      color: $orange;
+      background-color: $text-color;
+      border: 0.2rem ridge $orange;
+    }
+    &--2 {
+      color: $text-color;
+      background-color: $orange;
+      border: 0.2rem ridge $text-color;
+    }
+  }
+}
+
+.projects-list {
+  min-height: 30rem;
+  padding: 1em;
+  background-color: rgb(247, 247, 247);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 2rem;
+}
+
+.project {
+  background-color: #fff;
+  border-radius: 0.5em;
+  overflow: hidden;
+  box-shadow: 0 0 2rem #ccc;
+
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__imageContainer {
+    min-height: 17rem;
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    padding: 1em;
+
+    & > & {
+      line-height: 1;
+    }
+  }
+  &__title {
+    font-size: 1.8rem;
+  }
+  &__description {
+    font-size: 1.4rem;
+  }
+}
