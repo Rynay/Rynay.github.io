@@ -4,38 +4,40 @@ import { Link, NavLink } from 'react-router-dom';
 
 const links = [
   {
-    anchor: '/resume',
-    children: 'Resume',
-  },
-  {
     anchor: '/portfolio',
-    children: 'Portfolio',
-  },
-  {
-    anchor: '/contact',
-    children: 'Contact',
+    children: 'Портфолио',
   },
 ];
 
-const Header = ({ width }) => {
+const Header = ({ width, isMobileStyles }) => {
   const [style, setStyle] = useState({
     top: '5rem',
     left: width / 2 - 800 / 2 + 165,
   });
 
   useLayoutEffect(() => {
-    setStyle({
-      top: '5rem',
-      left: width / 2 - 800 / 2 + 165,
-    });
-  }, [width]);
+    if (width <= 1080 && width !== 0) {
+      setStyle({
+        position: 'relative',
+        order: 2,
+        width: 'auto',
+        margin: '0 2rem 2rem',
+      });
+      return;
+    } else {
+      setStyle({
+        top: '5rem',
+        left: width / 2 - 800 / 2 + 165,
+      });
+    }
+  }, [width, isMobileStyles]);
 
   return (
     <header style={style} className="header">
       <nav>
         <ul className="header__list">
           <li className="header__list-item header__list-item--home">
-            <Link to="/" className="header__link">
+            <Link aria-label="go to home page" to="/" className="header__link">
               <FaHome />
             </Link>
           </li>
@@ -53,7 +55,7 @@ const Header = ({ width }) => {
         </ul>
       </nav>
       <a className="header__hireMe" href="mailto:feirs911@gmail.com">
-        <span>Hire Me</span>
+        <span>Написать</span>
         <span className="header__hireMeIcon">
           <FaPaperPlane />
         </span>

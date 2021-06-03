@@ -18,7 +18,6 @@ const Project = forwardRef((props, ref) => {
     </li>
   );
 });
-
 const ProjectsList = ({ projects = [], options = [], dependencies }) => {
   const sortedAndFilteredProjects = projects
     .filter(options.filter(dependencies))
@@ -31,7 +30,7 @@ const ProjectsList = ({ projects = [], options = [], dependencies }) => {
         sortedAndFilteredProjects
       ) : (
         <li className="projects-list__message">
-          Here's no projects with such filters
+          Нет проектов по заданным фильтрам
         </li>
       )}
     </FlipMove>
@@ -83,7 +82,7 @@ const Portfolio = ({ portfolio }) => {
     <>
       <section>
         <h2 className="title">
-          <span>Portfolio</span>
+          <span>Портфолио</span>
         </h2>
         <div className="options">
           <div className="options__left">
@@ -132,7 +131,7 @@ const Portfolio = ({ portfolio }) => {
                   }
                 }}
               >
-                {filterDependencies.includes(tech) ? '-' : '+'} {tech}
+                {tech}
               </button>
             ))}
           </div>

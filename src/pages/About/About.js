@@ -6,7 +6,7 @@ const About = ({ about, skills }) => {
     <>
       <section style={{ backgroundColor: 'rgb(245,245,245)' }}>
         <h2 className="title">
-          <span>My Skills</span>
+          <span>Мой стек</span>
         </h2>
         <div className="card-container">
           {!skills && (
@@ -38,7 +38,7 @@ const About = ({ about, skills }) => {
       </section>
       <section>
         <h2 className="title">
-          <span>About me</span>
+          <span>Обо мне</span>
         </h2>
         {!about && <Skeleton height={'10rem'} width={'100%'} count={1} />}
         {about && <p>{about}</p>}

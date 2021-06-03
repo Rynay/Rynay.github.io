@@ -3,7 +3,7 @@ import { useLayoutEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import Skeleton from 'react-loading-skeleton';
 
-const Sidebar = ({ width, avatar, info = {} }) => {
+const Sidebar = ({ isMobileStyles, width, avatar, info = {} }) => {
   const [style, setStyle] = useState({
     top: '5rem',
     left: `${(width / 2 - 800 / 2) / 10}rem`,
@@ -11,18 +11,37 @@ const Sidebar = ({ width, avatar, info = {} }) => {
   });
 
   useLayoutEffect(() => {
-    setStyle({
-      top: '5rem',
-      left: `${(width / 2 - 800 / 2) / 10}rem`,
-      transform: 'translateX(-50%)',
-    });
-  }, [width]);
+    if (width <= 1080 && width !== 0) {
+      setStyle({
+        position: 'relative',
+        order: 1,
+        transform: 'translateX(0)',
+        width: 'auto',
+        margin: '2rem',
+      });
+      return;
+    } else {
+      setStyle({
+        top: '5rem',
+        left: `${(width / 2 - 800 / 2) / 10}rem`,
+        transform: 'translateX(-50%)',
+      });
+    }
+  }, [width, isMobileStyles]);
   return (
     <section style={style} className="sidebar">
       <div className="sidebar__header">
-        {!info.title && <Skeleton height={26} width={175} count={1} />}
+        {!info.title && (
+          <div>
+            <Skeleton height={26} width={175} count={1} />
+          </div>
+        )}
         {info.title && <h1 className="sidebar__name">{info.title}</h1>}
-        {!info.subtitle && <Skeleton height={18} width={125} count={1} />}
+        {!info.subtitle && (
+          <div>
+            <Skeleton height={18} width={125} count={1} />
+          </div>
+        )}
         {info.subtitle && <p className="sidebar__job">{info.subtitle}</p>}
       </div>
       <div className="sidebar__imageContainer">
@@ -44,9 +63,6 @@ const Sidebar = ({ width, avatar, info = {} }) => {
 
           {!info.list && (
             <>
-              <li>
-                <Skeleton height={26} width={175} count={1} />
-              </li>
               <li>
                 <Skeleton height={26} width={175} count={1} />
               </li>
