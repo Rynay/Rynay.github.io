@@ -54,6 +54,7 @@ const ProjectsList = ({ projects, options, dependencies }) => {
 const Portfolio = () => {
   const [filterDependencies, setFilterDependencies] = useState([]);
   const [options, setOptions] = useState({
+    sortedIn: 'Asc',
     sort: (a, b) => a.id - b.id,
     filter: (dependencies) => (t) =>
       dependencies.every((dep) => t.technologies.includes(dep)),
@@ -61,12 +62,14 @@ const Portfolio = () => {
   const sortDesc = () => {
     setOptions((options) => ({
       ...options,
+      sortedIn: 'Desc',
       sort: (a, b) => b.id - a.id,
     }));
   };
   const sortAsc = () => {
     setOptions((options) => ({
       ...options,
+      sortedIn: 'Asc',
       sort: (a, b) => a.id - b.id,
     }));
   };
@@ -77,7 +80,16 @@ const Portfolio = () => {
       setFilterDependencies((list) => [...list, dependency]);
     }
   };
-  console.log(filterDependencies);
+
+  const listOfPossibleTechnologies = [
+    'React',
+    'Redux',
+    'TypeScript',
+    'Styled Components',
+    'Material UI',
+    '[CSS / SCSS] Modules',
+    'Firebase',
+  ];
 
   return (
     <>
@@ -86,24 +98,24 @@ const Portfolio = () => {
           <span>Portfolio</span>
         </h2>
         <div>
-          <button onClick={sortAsc}>ascending order</button>
-          <button onClick={sortDesc}>Decrease</button>
-          <button
-            onClick={() => {
-              toggleFilterDependencies('React');
-            }}
-          >
-            {filterDependencies.includes('React') ? '-' : '+'} React
+          <button onClick={options.sortedIn === 'Asc' ? sortDesc : sortAsc}>
+            Sort By Date {options.sortedIn === 'Asc' ? '\u2191' : '\u2193'}
           </button>
-          <button onClick={() => toggleFilterDependencies('Redux')}>
-            {filterDependencies.includes('Redux') ? '-' : '+'} Redux
-          </button>
-          <button onClick={() => toggleFilterDependencies('TypeScript')}>
-            {filterDependencies.includes('TypeScript') ? '-' : '+'} TypeScript
-          </button>
-          <button onClick={() => toggleFilterDependencies('Firebase')}>
-            {filterDependencies.includes('Firebase') ? '-' : '+'}Firebase
-          </button>
+          {listOfPossibleTechnologies.map((tech) => (
+            <button
+              key={tech}
+              onClick={() => {
+                toggleFilterDependencies(tech);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  toggleFilterDependencies(tech);
+                }
+              }}
+            >
+              {filterDependencies.includes(tech) ? '-' : '+'} {tech}
+            </button>
+          ))}
         </div>
         <ProjectsList
           projects={projects}
