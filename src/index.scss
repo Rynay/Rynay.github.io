@@ -285,6 +285,14 @@ canvas {
       display: flex;
       align-items: center;
       padding: 0 1em;
+      div {
+        display: flex;
+        align-items: center;
+        img {
+          height: 2rem;
+          width: 2rem;
+        }
+      }
       span {
         margin-left: 1em;
         white-space: nowrap;
