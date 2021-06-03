@@ -412,13 +412,18 @@ canvas {
 }
 
 .projects-list {
-  min-height: 30rem;
   padding: 1em;
   background-color: rgb(247, 247, 247);
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   gap: 2rem;
+  min-height: 28rem;
+
+  &__message {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
 }
 
 .project {
@@ -426,16 +431,26 @@ canvas {
   border-radius: 0.5em;
   overflow: hidden;
   box-shadow: 0 0 2rem #ccc;
+  min-height: 25rem;
+  max-width: 30rem;
+
+  display: flex;
 
   &__link:link,
   &__link:visited {
     text-decoration: none;
     color: inherit;
+    display: flex;
+    flex-direction: column;
   }
 
   &__imageContainer {
-    min-height: 17rem;
+    flex: 1;
+    max-height: 17rem;
+    overflow: hidden;
     img {
+      display: block;
+      width: 100%;
       height: 100%;
       object-fit: cover;
     }

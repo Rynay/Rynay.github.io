@@ -20,16 +20,20 @@ const Project = forwardRef((props, ref) => {
 });
 
 const ProjectsList = ({ projects = [], options = [], dependencies }) => {
+  const sortedAndFilteredProjects = projects
+    .filter(options.filter(dependencies))
+    .sort(options.sort)
+    .map((project) => <Project key={project.id} {...project} />);
+
   return (
-    <FlipMove>
-      <ul className="projects-list">
-        {projects
-          .filter(options.filter(dependencies))
-          .sort(options.sort)
-          .map((project) => (
-            <Project key={project.id} {...project} />
-          ))}
-      </ul>
+    <FlipMove typeName="ul" className="projects-list">
+      {sortedAndFilteredProjects.length ? (
+        sortedAndFilteredProjects
+      ) : (
+        <li className="projects-list__message">
+          Here's no projects with such filters
+        </li>
+      )}
     </FlipMove>
   );
 };
