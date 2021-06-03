@@ -1,4 +1,6 @@
-import { useState, useLayoutEffect, lazy, Suspense } from 'react';
+import { connect } from 'react-redux';
+import * as AC from './redux/AC';
+import { useState, useLayoutEffect, lazy, Suspense, useEffect } from 'react';
 import useWindowSize from './hooks/useWindowSize';
 import { Switch, Route } from 'react-router-dom';
 import Particles from 'react-particles-js';
@@ -10,7 +12,11 @@ const Resume = lazy(() => import('./pages/Resume'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const Contact = lazy(() => import('./pages/Contact'));
 
-function App() {
+function App({ initApp }) {
+  useEffect(() => {
+    initApp();
+  }, []);
+
   const [width] = useWindowSize();
   const [style, setStyle] = useState({
     top: '14rem',
@@ -156,4 +162,10 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => ({
+  initApp: () => {
+    dispatch(AC.initApp());
+  },
+});
+
+export default connect(null, mapDispatchToProps)(App);
