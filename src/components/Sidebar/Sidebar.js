@@ -1,6 +1,7 @@
 import { FaInfo } from 'react-icons/fa';
 import { useLayoutEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import Skeleton from 'react-loading-skeleton';
 
 const Sidebar = ({ width, avatar, info = {} }) => {
   const [style, setStyle] = useState({
@@ -19,11 +20,14 @@ const Sidebar = ({ width, avatar, info = {} }) => {
   return (
     <section style={style} className="sidebar">
       <div className="sidebar__header">
-        <h1 className="sidebar__name">{info.title}</h1>
-        <p className="sidebar__job">{info.subtitle}</p>
+        {!info.title && <Skeleton height={26} width={175} count={1} />}
+        {info.title && <h1 className="sidebar__name">{info.title}</h1>}
+        {!info.subtitle && <Skeleton height={18} width={125} count={1} />}
+        {info.subtitle && <p className="sidebar__job">{info.subtitle}</p>}
       </div>
       <div className="sidebar__imageContainer">
-        <img src={avatar} alt="" />
+        {!avatar && <Skeleton width={'100%'} height={175} count={1} />}
+        {avatar && <img src={avatar} alt="" />}
       </div>
       <div className="sidebar__info">
         <span className="sidebar__iconContainer">
@@ -38,13 +42,34 @@ const Sidebar = ({ width, avatar, info = {} }) => {
             .
           </li>
 
-          {info.list?.map((field) => (
-            <li key={field.title} className="sidebar__list-item">
-              <div>
-                {field.title}: <span>{field.value}</span>
-              </div>
-            </li>
-          ))}
+          {!info.list && (
+            <>
+              <li>
+                <Skeleton height={26} width={175} count={1} />
+              </li>
+              <li>
+                <Skeleton height={26} width={175} count={1} />
+              </li>
+              <li>
+                <Skeleton height={26} width={175} count={1} />
+              </li>
+              <li>
+                <Skeleton height={26} width={175} count={1} />
+              </li>
+              <li style={{ marginBottom: '3rem' }}>
+                <Skeleton height={26} width={175} count={1} />
+              </li>
+            </>
+          )}
+
+          {info.list &&
+            info.list?.map((field) => (
+              <li key={field.title} className="sidebar__list-item">
+                <div>
+                  {field.title}: <span>{field.value}</span>
+                </div>
+              </li>
+            ))}
         </ul>
       </div>
     </section>

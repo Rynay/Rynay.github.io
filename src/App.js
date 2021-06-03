@@ -12,10 +12,17 @@ const Resume = lazy(() => import('./pages/Resume'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const Contact = lazy(() => import('./pages/Contact'));
 
-function App({ initApp }) {
+function App({ initApp, favicon }) {
   useEffect(() => {
     initApp();
   }, []);
+
+  useEffect(() => {
+    if (!favicon) return;
+    const link = document.querySelector("link[rel~='icon']");
+    link.href = favicon.path;
+    link.type = favicon.type;
+  }, [favicon]);
 
   const [width] = useWindowSize();
   const [style, setStyle] = useState({
@@ -162,10 +169,14 @@ function App({ initApp }) {
   );
 }
 
+const mapStateToProps = (state) => ({
+  favicon: state.data?.favicon,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   initApp: () => {
     dispatch(AC.initApp());
   },
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
