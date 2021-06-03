@@ -1,10 +1,8 @@
 import { useLayoutEffect, useState } from 'react';
 import { FaHome, FaPaperPlane } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
-import useWindowSize from '../../hooks/useWindowSize';
 
-const Header = () => {
-  const [width] = useWindowSize();
+const Header = ({ width }) => {
   const [style, setStyle] = useState({
     top: '5rem',
     left: width / 2 - 800 / 2 + 165,

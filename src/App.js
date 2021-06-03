@@ -136,8 +136,8 @@ function App() {
       />
 
       <div className="main-container">
-        <Header />
-        <Sidebar />
+        <Header width={width} />
+        <Sidebar width={width} />
         <main style={style} className="main">
           <div className="container">
             <Suspense fallback={<div></div>}>

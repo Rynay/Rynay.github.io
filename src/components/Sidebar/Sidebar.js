@@ -1,9 +1,7 @@
 import { FaInfo } from 'react-icons/fa';
 import { useLayoutEffect, useState } from 'react';
-import useWindowSize from '../../hooks/useWindowSize';
 
-const Sidebar = () => {
-  const [width] = useWindowSize();
+const Sidebar = ({ width }) => {
   const [style, setStyle] = useState({
     top: '5rem',
     left: `${(width / 2 - 800 / 2) / 10}rem`,
