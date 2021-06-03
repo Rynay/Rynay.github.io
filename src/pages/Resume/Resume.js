@@ -1,8 +1,12 @@
 const Resume = () => {
   return (
-    <h2 className="title">
-      <span>Resume</span>
-    </h2>
+    <>
+      <section>
+        <h2 className="title">
+          <span>Resume</span>
+        </h2>
+      </section>
+    </>
   );
 };
 

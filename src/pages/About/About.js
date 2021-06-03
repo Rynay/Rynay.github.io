@@ -29,7 +29,6 @@ const About = () => {
             <ul className="list">
               <li className="list-item">React</li>
               <li className="list-item">Redux</li>
-              <li className="list-item">TypeScript</li>
               <li className="list-item">JavaScript</li>
               <li className="list-item">HTML</li>
               <li className="list-item">CSS</li>

@@ -2,6 +2,21 @@ import { useLayoutEffect, useState } from 'react';
 import { FaHome, FaPaperPlane } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 
+const links = [
+  {
+    anchor: '/resume',
+    children: 'Resume',
+  },
+  {
+    anchor: '/portfolio',
+    children: 'Portfolio',
+  },
+  {
+    anchor: '/contact',
+    children: 'Contact',
+  },
+];
+
 const Header = ({ width }) => {
   const [style, setStyle] = useState({
     top: '5rem',
@@ -24,33 +39,17 @@ const Header = ({ width }) => {
               <FaHome />
             </Link>
           </li>
-          <li className="header__list-item">
-            <NavLink
-              to="/resume"
-              className="header__link"
-              activeClassName="header__link--active"
-            >
-              Resume
-            </NavLink>
-          </li>
-          <li className="header__list-item">
-            <NavLink
-              to="/portfolio"
-              className="header__link"
-              activeClassName="header__link--active"
-            >
-              Portfolio
-            </NavLink>
-          </li>
-          <li className="header__list-item">
-            <NavLink
-              to="/contact"
-              className="header__link"
-              activeClassName="header__link--active"
-            >
-              Contact
-            </NavLink>
-          </li>
+          {links.map((link) => (
+            <li key={link.anchor} className="header__list-item">
+              <NavLink
+                to={link.anchor}
+                className="header__link"
+                activeClassName="header__link--active"
+              >
+                {link.children}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </nav>
       <a className="header__hireMe" href="mailto:feirs911@gmail.com">

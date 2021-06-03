@@ -142,9 +142,7 @@ function App() {
           <div className="container">
             <Suspense fallback={<div></div>}>
               <Switch>
-                <Route path="/" exact>
-                  <About />
-                </Route>
+                <Route path="/" exact component={About} />
                 <Route path="/resume" component={Resume} />
                 <Route path="/portfolio" component={Portfolio} />
                 <Route path="/contact" component={Contact} />
