@@ -301,7 +301,7 @@ canvas {
 
 .card-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   row-gap: 2rem;
   column-gap: 2rem;
 }
@@ -317,7 +317,6 @@ canvas {
     justify-content: center;
     padding: 0 1em;
     div {
-      flex: 1;
       display: flex;
       align-items: center;
       justify-content: flex-end;
@@ -327,8 +326,7 @@ canvas {
       }
     }
     span {
-      flex: 2.5;
-      margin-left: 1em;
+      margin-left: 0.5em;
       white-space: nowrap;
     }
   }
