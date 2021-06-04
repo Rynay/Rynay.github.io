@@ -8,7 +8,9 @@ import Sidebar from './components/Sidebar';
 
 const About = lazy(() => import('./pages/About'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
-const Particles = lazy(() => import('react-particles-js'));
+const Particles = lazy(() =>
+  import(/* webpackPrefetch: true */ 'react-particles-js')
+);
 
 const backgroundParams = {
   particles: {
