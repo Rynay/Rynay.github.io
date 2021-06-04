@@ -1,6 +1,7 @@
 import { useLayoutEffect, useState } from 'react';
 import { FaHome, FaPaperPlane } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const links = [
   {
@@ -9,7 +10,7 @@ const links = [
   },
 ];
 
-const Header = ({ width, isMobileStyles }) => {
+const Header = ({ width, isMobileStyles, email }) => {
   const [style, setStyle] = useState({
     top: '5rem',
     left: width / 2 - 800 / 2 + 165,
@@ -54,7 +55,7 @@ const Header = ({ width, isMobileStyles }) => {
           ))}
         </ul>
       </nav>
-      <a className="header__hireMe" href="mailto:feirs911@gmail.com">
+      <a className="header__hireMe" href={`mailto:${email}`}>
         <span>Написать</span>
         <span className="header__hireMeIcon">
           <FaPaperPlane />
@@ -64,4 +65,8 @@ const Header = ({ width, isMobileStyles }) => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  email: state.data?.email,
+});
+
+export default connect(mapStateToProps)(Header);
