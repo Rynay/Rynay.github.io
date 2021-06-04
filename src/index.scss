@@ -235,7 +235,7 @@ canvas {
     align-items: center;
     span:not(.header__hireMeIcon) {
       font-size: 1.5rem;
-      color: #fff;
+      color: $text-color;
       padding: 0 0.3em;
       transition: color 0.2s;
     }
@@ -243,7 +243,7 @@ canvas {
     &:hover,
     &:focus {
       span:not(.header__hireMeIcon) {
-        color: $text-color;
+        color: #fff;
       }
     }
 
