@@ -14,10 +14,10 @@ const Project = forwardRef((props, ref) => {
         <div className="project__imageContainer">
           <img src={props.image} alt="Site example" />
         </div>
-        <div className="project__info">
+        {/* <div className="project__info">
           <h3 className="project__title">{props.title}</h3>
           <p className="project__description">{props.description}</p>
-        </div>
+        </div> */}
       </a>
     </li>
   );

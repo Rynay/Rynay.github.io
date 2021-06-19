@@ -465,7 +465,7 @@ canvas {
 .project {
   min-width: 20rem;
   background-color: #fff;
-  border-radius: 0.5em;
+  border-radius: 0.25em;
   overflow: hidden;
   box-shadow: 0 0 2rem #ccc;
   // min-height: 25rem;
@@ -486,8 +486,9 @@ canvas {
     overflow: hidden;
     img {
       display: block;
+      height: 100%;
       width: 100%;
-      object-fit: contain;
+      object-fit: cover;
     }
   }
 
