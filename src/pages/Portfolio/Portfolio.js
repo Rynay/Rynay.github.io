@@ -6,7 +6,11 @@ import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 const Project = forwardRef((props, ref) => {
   return (
     <li ref={ref} className="project">
-      <a className="project__link" href={props.link}>
+      <a
+        className="project__link"
+        href={props.link}
+        rel="noreferrer"
+        target="_blank">
         <div className="project__imageContainer">
           <img src={props.image} alt="Site example" />
         </div>
@@ -19,7 +23,7 @@ const Project = forwardRef((props, ref) => {
   );
 });
 const ProjectsList = ({ projects = [], options = [], dependencies }) => {
-  const sortedAndFilteredProjects = projects
+  const sortedAndFilteredProjects = [...projects]
     .filter(options.filter(dependencies))
     .sort(options.sort)
     .map((project) => <Project key={project.id} {...project} />);
@@ -41,7 +45,7 @@ const Portfolio = ({ portfolio }) => {
   const [filterDependencies, setFilterDependencies] = useState([]);
   const [options, setOptions] = useState({
     sortedIn: 'Asc',
-    sort: (a, b) => a.date - b.date,
+    sort: (a, b) => b.date - a.date,
     filter: (dependencies) => (t) =>
       dependencies.every((dep) => t.technologies.includes(dep)),
   });
@@ -52,14 +56,14 @@ const Portfolio = ({ portfolio }) => {
     setOptions((options) => ({
       ...options,
       sortedIn: 'Desc',
-      sort: (a, b) => b.date - a.date,
+      sort: (a, b) => a.date - b.date,
     }));
   };
   const sortAsc = () => {
     setOptions((options) => ({
       ...options,
       sortedIn: 'Asc',
-      sort: (a, b) => a.date - b.date,
+      sort: (a, b) => b.date - a.date,
     }));
   };
   const toggleFilterDependencies = (dependency) => {
@@ -92,8 +96,7 @@ const Portfolio = ({ portfolio }) => {
                   ? 'options__sort--1'
                   : 'options__sort--2'
               }`}
-              onClick={options.sortedIn === 'Asc' ? sortDesc : sortAsc}
-            >
+              onClick={options.sortedIn === 'Asc' ? sortDesc : sortAsc}>
               <span>Date</span>{' '}
               <span className="options__sort-icon">
                 {options.sortedIn === 'Asc' ? <FaArrowUp /> : <FaArrowDown />}
@@ -110,8 +113,7 @@ const Portfolio = ({ portfolio }) => {
                 filterDependencies.length
                   ? 'options__filter--2'
                   : 'options__filter--1'
-              }`}
-            >
+              }`}>
               All
             </button>
             {listOfPossibleTechnologies.map((tech) => (
@@ -129,8 +131,7 @@ const Portfolio = ({ portfolio }) => {
                   if (e.key === 'Enter') {
                     toggleFilterDependencies(tech);
                   }
-                }}
-              >
+                }}>
                 {tech}
               </button>
             ))}

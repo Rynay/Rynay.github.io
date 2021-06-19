@@ -70,7 +70,7 @@ canvas {
   width: 75rem;
 
   .container {
-    min-height: 40.5rem;
+    // min-height: 40.5rem;
     background-color: #fff;
     overflow: hidden;
     border-radius: 0.5rem;
@@ -235,7 +235,7 @@ canvas {
     align-items: center;
     span:not(.header__hireMeIcon) {
       font-size: 1.5rem;
-      color: $text-color;
+      color: #fff;
       padding: 0 0.3em;
       transition: color 0.2s;
     }
@@ -243,7 +243,7 @@ canvas {
     &:hover,
     &:focus {
       span:not(.header__hireMeIcon) {
-        color: #fff;
+        color: $text-color;
       }
     }
 
@@ -451,9 +451,9 @@ canvas {
   background-color: rgb(247, 247, 247);
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
   gap: 2rem;
-  min-height: 28rem;
+  // min-height: 28rem;
   justify-items: center;
 
   &__message {
@@ -468,7 +468,7 @@ canvas {
   border-radius: 0.5em;
   overflow: hidden;
   box-shadow: 0 0 2rem #ccc;
-  min-height: 25rem;
+  // min-height: 25rem;
   max-width: 30rem;
 
   display: flex;
@@ -483,13 +483,11 @@ canvas {
 
   &__imageContainer {
     flex: 1;
-    max-height: 17rem;
     overflow: hidden;
     img {
       display: block;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 

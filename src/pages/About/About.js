@@ -36,13 +36,13 @@ const About = ({ about, skills }) => {
             ))}
         </div>
       </section>
-      <section>
+      {/* <section>
         <h2 className="title">
           <span>Обо мне</span>
         </h2>
         {!about && <Skeleton height={'10rem'} width={'100%'} count={1} />}
         {about && <p>{about}</p>}
-      </section>
+      </section> */}
     </>
   );
 };
