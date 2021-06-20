@@ -6,10 +6,8 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 
-const About = lazy(() => import(/* webpackPrefetch: true */ './pages/About'));
-const Portfolio = lazy(() =>
-  import(/* webpackPrefetch: true */ './pages/Portfolio')
-);
+const About = lazy(() => import('./pages/About'));
+const Portfolio = lazy(() => import('./pages/Portfolio'));
 const Particles = lazy(() => import('react-particles-js'));
 
 const backgroundParams = {

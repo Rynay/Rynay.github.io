@@ -453,7 +453,7 @@ canvas {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
   gap: 2rem;
-  // min-height: 28rem;
+  min-height: 40rem;
   justify-items: center;
 
   &__message {
@@ -463,13 +463,10 @@ canvas {
 }
 
 .project {
-  min-width: 20rem;
   background-color: #fff;
   border-radius: 0.25em;
   overflow: hidden;
   box-shadow: 0 0 2rem #ccc;
-  // min-height: 25rem;
-  max-width: 30rem;
 
   display: flex;
 
