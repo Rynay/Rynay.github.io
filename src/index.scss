@@ -1,8 +1,11 @@
 // #00356b
 // #1b1513
 // #010100
-$orange: #ff7227;
-$text-color: #1b1513;
+$main-purple: #5a189a;
+$light-purple: #c77dff;
+$dark-purple: #10002b;
+$text-color: #fff;
+$pink: #f72585;
 
 html {
   font-size: 62.5%;
@@ -22,7 +25,7 @@ body {
   color: $text-color;
   font-family: 'Oswald', sans-serif;
   overflow-y: scroll;
-  background-color: $text-color;
+  background-color: $light-purple;
 }
 
 h1,
@@ -50,20 +53,6 @@ img {
   width: 100%;
   max-width: 100%;
 }
-canvas {
-  display: block;
-  vertical-align: bottom;
-}
-
-#particles-js {
-  z-index: -1;
-  background: #1b1513;
-  position: fixed !important;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
 
 .main {
   position: absolute;
@@ -80,148 +69,16 @@ canvas {
   }
 }
 
-.sidebar {
-  border-radius: 0.5rem;
-  background-color: #fff;
-  position: absolute;
-  width: 25rem;
-  overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
-
-  &__header {
-    padding: 0.75em;
-  }
-  &__name {
-    line-height: 1;
-  }
-  &__job {
-    line-height: 1;
-    font-size: 1.5rem;
-    letter-spacing: 0.07rem;
-  }
-
-  &__imageContainer {
-    max-height: 25rem;
-    transform: skewY(-5deg);
-    overflow: hidden;
-
-    & > * {
-      min-height: 20rem;
-      height: 100%;
-      transform: skewY(5deg) scale(1.1);
-    }
-  }
-
-  &__info {
-    align-self: center;
-    padding-top: 0.5rem;
-    position: relative;
-    margin-top: 0.5rem;
-
-    .sidebar__iconContainer {
-      padding: 1.25rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: $orange;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-    }
-
-    .sidebar__icon {
-      fill: #fff;
-    }
-  }
-
-  &__list {
-    min-width: 17rem;
-    &-item {
-      padding: 0 1rem 1.5rem 2rem;
-      &:not(:last-child) {
-        border-left: 0.2rem solid #ccc;
-      }
-      &:last-child {
-        border-left: 0.2rem solid transparent;
-      }
-      &:not(:first-child) {
-        position: relative;
-        &::before {
-          content: '';
-          display: block;
-          position: absolute;
-          left: -3.5%;
-          top: 50%;
-          transform: translateY(-230%);
-          height: 1rem;
-          width: 1rem;
-          border: 0.25rem solid $orange;
-          background-color: #fff;
-          border-radius: 50%;
-        }
-      }
-      div {
-        transform: translateY(-50%);
-        font-size: 1.5rem;
-
-        span {
-          color: #666;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 37.5rem) and (max-width: 67.5rem) {
-  .sidebar {
-    display: grid;
-    grid-template-rows: min-content 1fr;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-
-    &__header {
-      grid-column: 1 / 2;
-      grid-row: 1 / 2;
-    }
-    &__imageContainer {
-      grid-column: 2 / -1;
-      grid-row: 1 / -1;
-      transform: skewY(0deg);
-      overflow: hidden;
-      align-self: stretch;
-      justify-self: self-end;
-      max-height: 30rem;
-      max-width: 35rem;
-
-      & > * {
-        min-height: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        transform: skewY(0deg) scale(1);
-      }
-    }
-    &__info {
-      grid-column: 1 / 2;
-      grid-row: 2 / -1;
-      align-self: center;
-      justify-self: center;
-    }
-  }
-}
-
 .header {
-  border-radius: 0.5rem;
-  background-color: #fff;
-  position: absolute;
-  width: 75rem;
+  background-color: $main-purple;
   overflow: hidden;
   display: flex;
   align-items: center;
+
+  nav {
+    flex: 1;
+    display: flex;
+  }
 
   &__hireMe {
     text-decoration: none;
@@ -230,7 +87,7 @@ canvas {
     margin-left: auto;
     padding: 0.3em 0.5em;
     border-radius: 50rem;
-    background-color: $orange;
+    background-color: $main-purple;
     display: flex;
     align-items: center;
     span:not(.header__hireMeIcon) {
@@ -264,8 +121,10 @@ canvas {
   }
 
   &__list {
+    flex: 1;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
   }
 
   &__link {
@@ -274,21 +133,39 @@ canvas {
     display: block;
     padding: 1em;
     transition: color 0.15s;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      background-color: $pink;
+      height: 0.4rem;
+      width: 0;
+      transition: 0.2s width;
+    }
 
     &:hover,
     &:focus {
-      color: $orange;
+      &::after {
+        width: 100%;
+      }
     }
 
     &--active {
-      color: $orange;
+      &::after {
+        width: 100%;
+      }
     }
   }
   &__list-item {
     &--home {
       .header__link {
         padding: 1em 1.3em;
-        background-color: $orange;
+        background-color: $main-purple;
         color: #fff;
         &:hover,
         &:focus {
@@ -349,7 +226,7 @@ canvas {
         width: 1rem;
         // border-radius: 50%;
         background-color: #fff;
-        border: 0.3rem solid $orange;
+        border: 0.3rem solid $main-purple;
       }
     }
   }
@@ -368,7 +245,7 @@ canvas {
     content: '';
     height: 0.3em;
     width: 100%;
-    background-color: rgba($orange, 0.5);
+    background-color: rgba($main-purple, 0.5);
     position: absolute;
     bottom: 0.15em;
     z-index: 0;
@@ -421,26 +298,26 @@ canvas {
     }
 
     &--1 {
-      color: $orange;
+      color: $main-purple;
       background-color: $text-color;
-      border: 0.2rem ridge $orange;
+      border: 0.2rem ridge $main-purple;
     }
     &--2 {
       color: $text-color;
-      background-color: $orange;
+      background-color: $main-purple;
       border: 0.2rem ridge $text-color;
     }
   }
 
   &__filter {
     &--1 {
-      color: $orange;
+      color: $main-purple;
       background-color: $text-color;
-      border: 0.2rem ridge $orange;
+      border: 0.2rem ridge $main-purple;
     }
     &--2 {
       color: $text-color;
-      background-color: $orange;
+      background-color: $main-purple;
       border: 0.2rem ridge $text-color;
     }
   }
