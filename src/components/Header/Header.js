@@ -1,11 +1,11 @@
-import { FaHome, FaPaperPlane } from 'react-icons/fa';
+import { FaHome } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const links = [
   {
     anchor: '/portfolio',
-    children: 'Портфолио',
+    children: 'Portfolio',
   },
 ];
 
@@ -13,7 +13,7 @@ const Header = ({ email }) => {
   return (
     <header className="header">
       <nav>
-        <Link aria-label="go to home page" to="/" className="header__link">
+        <Link aria-label="go to home page" to="/" className="header__home">
           <FaHome />
         </Link>
         <ul className="header__list">
@@ -29,12 +29,6 @@ const Header = ({ email }) => {
           ))}
         </ul>
       </nav>
-      {/* <a className="header__hireMe" href={`mailto:${email}`}>
-        <span>Написать</span>
-        <span className="header__hireMeIcon">
-          <FaPaperPlane />
-        </span>
-      </a> */}
     </header>
   );
 };

@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'OutrunFutureItalicBold';
+  src: local('OutrunFutureItalicBold'),
+    url('./fonts/OutrunFutureBoldItalic.woff') format('woff'),
+    url('./fonts/OutrunFutureBoldItalic.woff2') format('woff2'),
+    url('./fonts/OutrunFutureBoldItalic.otf') format('opentype'),
+    url('./fonts/OutrunFutureBoldItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'OutrunFutureBold';
+  src: local('OutrunFutureBold'),
+    url('./fonts/OutrunFutureBold.woff') format('woff'),
+    url('./fonts/OutrunFutureBold.woff2') format('woff2'),
+    url('./fonts/OutrunFutureBold.otf') format('opentype'),
+    url('./fonts/OutrunFutureBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'OutrunFutureRegular';
+  src: local('OutrunFutureRegular'),
+    url('./fonts/OutrunFuture.woff') format('woff'),
+    url('./fonts/OutrunFuture.woff2') format('woff2'),
+    url('./fonts/OutrunFuture.otf') format('opentype'),
+    url('./fonts/OutrunFuture.ttf') format('truetype');
+}

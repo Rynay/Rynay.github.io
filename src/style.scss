@@ -34,7 +34,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Pattaya', serif;
+  font-family: 'OutrunFutureBold', serif;
 }
 
 ul,
@@ -47,6 +47,10 @@ a,
 input,
 textarea {
   font-family: inherit;
+}
+
+a {
+  font-family: 'OutrunFutureRegular';
 }
 
 img {
@@ -75,49 +79,16 @@ img {
   display: flex;
   align-items: center;
 
+  &__home {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 1em;
+  }
+
   nav {
     flex: 1;
     display: flex;
-  }
-
-  &__hireMe {
-    text-decoration: none;
-    color: inherit;
-    margin: 0 0.5em;
-    margin-left: auto;
-    padding: 0.3em 0.5em;
-    border-radius: 50rem;
-    background-color: $main-purple;
-    display: flex;
-    align-items: center;
-    span:not(.header__hireMeIcon) {
-      font-size: 1.5rem;
-      color: #fff;
-      padding: 0 0.3em;
-      transition: color 0.2s;
-    }
-
-    &:hover,
-    &:focus {
-      span:not(.header__hireMeIcon) {
-        color: $text-color;
-      }
-    }
-
-    &Icon {
-      background-color: #fff;
-      height: 2.5rem;
-      width: 2.5rem;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      svg {
-        height: 1.25rem;
-        width: 1.25rem;
-      }
-    }
   }
 
   &__list {
@@ -132,7 +103,6 @@ img {
     text-decoration: none;
     display: block;
     padding: 1em;
-    transition: color 0.15s;
     position: relative;
 
     &::after {
