@@ -74,6 +74,7 @@ img {
   position: relative;
 
   &__title {
+    text-align: center;
     line-height: 1.6;
     min-height: 100vh;
     min-width: 100vw;
@@ -84,10 +85,12 @@ img {
     bottom: 0;
     z-index: 1;
     background-image: linear-gradient(
-      rgba($dark-purple, 0.5),
-      rgba($dark-purple, 0.5)
+      rgba($dark-purple, 0.6),
+      rgba($dark-purple, 0.6)
     );
-
+    & > span {
+      transform: translateY(-15%);
+    }
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,6 +102,15 @@ img {
       color: $pink;
       font-size: 7rem;
       text-shadow: 0.05em 0.05em $dark-purple;
+      @supports (background-clip: text) {
+        color: transparent;
+        background-image: linear-gradient(
+          rgba(rgb(255, 34, 155), 1),
+          rgba(rgb(58, 0, 97), 1)
+        );
+        background-clip: text;
+        text-shadow: -0.05em -0.05em $pink;
+      }
     }
   }
 
@@ -121,7 +133,7 @@ img {
   left: 0;
   right: 0;
   z-index: 10;
-  background-color: $dark-purple;
+  background-color: rgba($dark-purple, 0.9);
   overflow: hidden;
   display: flex;
   align-items: center;
