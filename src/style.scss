@@ -3,7 +3,7 @@
 // #010100
 $main-purple: #5a189a;
 $light-purple: #c77dff;
-$dark-purple: #10002b;
+$dark-purple: #240046;
 $text-color: #fff;
 $pink: #f72585;
 
@@ -59,22 +59,69 @@ img {
 }
 
 .main {
-  position: absolute;
-  width: 75rem;
-
   .container {
-    // min-height: 40.5rem;
-    background-color: #fff;
+    min-height: 100vh;
     overflow: hidden;
-    border-radius: 0.5rem;
     & > *:not(.title) {
       padding: 3rem 3rem 5rem;
     }
   }
 }
 
+.greeting {
+  min-height: 100vh;
+  background: url('/bg.jpg') center center / cover $main-purple;
+  position: relative;
+
+  &__title {
+    line-height: 1.6;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-image: linear-gradient(
+      rgba($dark-purple, 0.5),
+      rgba($dark-purple, 0.5)
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    text-shadow: 0.05em 0.05em $pink;
+
+    &--pink {
+      font-family: 'OutrunFutureBold';
+      color: $pink;
+      font-size: 7rem;
+      text-shadow: 0.05em 0.05em $dark-purple;
+    }
+  }
+
+  &__video {
+    position: absolute;
+    max-width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .header {
-  background-color: $main-purple;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: $dark-purple;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -104,6 +151,7 @@ img {
     display: block;
     padding: 1em;
     position: relative;
+    transition: color 0.2s;
 
     &::after {
       content: '';
@@ -126,8 +174,9 @@ img {
     }
 
     &--active {
+      color: $pink;
       &::after {
-        width: 100%;
+        width: 0 !important;
       }
     }
   }

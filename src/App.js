@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Portfolio from './pages/Portfolio';
+import Greeting from './pages/Greeting';
 
 function App({ initApp }) {
   useEffect(() => {
@@ -18,7 +19,7 @@ function App({ initApp }) {
       <main className="main">
         <div className="container">
           <Switch>
-            {/* <Route path="/" exact component={About} /> */}
+            <Route path="/" exact component={Greeting} />
             <Route path="/portfolio" component={Portfolio} />
           </Switch>
         </div>
