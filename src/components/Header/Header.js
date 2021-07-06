@@ -1,4 +1,3 @@
-import { useLayoutEffect, useState } from 'react';
 import { FaHome, FaPaperPlane } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -10,31 +9,9 @@ const links = [
   },
 ];
 
-const Header = ({ width, isMobileStyles, email }) => {
-  const [style, setStyle] = useState({
-    top: '5rem',
-    left: width / 2 - 800 / 2 + 165,
-  });
-
-  useLayoutEffect(() => {
-    if (width <= 1080 && width !== 0) {
-      setStyle({
-        position: 'relative',
-        order: 2,
-        width: 'auto',
-        margin: '0 2rem 2rem',
-      });
-      return;
-    } else {
-      setStyle({
-        top: '5rem',
-        left: width / 2 - 800 / 2 + 165,
-      });
-    }
-  }, [width, isMobileStyles]);
-
+const Header = ({ email }) => {
   return (
-    <header style={style} className="header">
+    <header className="header">
       <nav>
         <ul className="header__list">
           <li className="header__list-item header__list-item--home">
@@ -47,8 +24,7 @@ const Header = ({ width, isMobileStyles, email }) => {
               <NavLink
                 to={link.anchor}
                 className="header__link"
-                activeClassName="header__link--active"
-              >
+                activeClassName="header__link--active">
                 {link.children}
               </NavLink>
             </li>
