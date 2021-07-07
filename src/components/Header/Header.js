@@ -5,7 +5,15 @@ import { connect } from 'react-redux';
 const links = [
   {
     anchor: '/portfolio',
-    children: 'Portfolio',
+    children: 'portfolio',
+  },
+  {
+    anchor: '/resume',
+    children: 'resume',
+  },
+  {
+    anchor: '/about',
+    children: 'about me',
   },
 ];
 

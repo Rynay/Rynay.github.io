@@ -133,7 +133,7 @@ img {
   left: 0;
   right: 0;
   z-index: 10;
-  background-color: rgba($dark-purple, 0.9);
+  background-color: rgba($dark-purple, 0.85);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -275,7 +275,9 @@ img {
   text-align: center;
 }
 
-.portfolio {
+.portfolio,
+.about,
+.resume {
   min-height: 100vh;
   background-image: linear-gradient(
       rgba($dark-purple, 0.7),
@@ -283,6 +285,14 @@ img {
     ),
     url('/bg2.jpg');
   background-size: 30rem;
+
+  .warning {
+    font-family: 'OutrunFutureItalicBold';
+    color: $pink;
+    text-align: center;
+    font-size: 6rem;
+    text-shadow: 0.05em 0.05em #fff;
+  }
 }
 
 .options {
