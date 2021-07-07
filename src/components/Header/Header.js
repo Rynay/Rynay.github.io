@@ -1,7 +1,4 @@
-import { FaHome } from 'react-icons/fa';
-import { Link, NavLink } from 'react-router-dom';
-import { connect } from 'react-redux';
-
+import { NavLink } from 'react-router-dom';
 const links = [
   {
     anchor: '/portfolio',
@@ -17,13 +14,18 @@ const links = [
   },
 ];
 
-const Header = ({ email }) => {
+const Header = () => {
   return (
     <header className="header">
       <nav>
-        <Link aria-label="go to home page" to="/" className="header__home">
-          <FaHome />
-        </Link>
+        <NavLink
+          aria-label="go to home page"
+          to="/"
+          exact
+          className="header__home"
+          activeClassName="header__home--active">
+          KL
+        </NavLink>
         <ul className="header__list">
           {links.map((link) => (
             <li key={link.anchor} className="header__list-item">
@@ -41,8 +43,4 @@ const Header = ({ email }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  email: state.data?.email,
-});
-
-export default connect(mapStateToProps)(Header);
+export default Header;
