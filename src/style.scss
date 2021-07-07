@@ -70,7 +70,7 @@ img {
 
 .greeting {
   min-height: 100vh;
-  background: url('/bg.jpg') center center / cover $main-purple;
+  background: url('/main-bg2.jpg') center 35% / cover $dark-purple;
   position: relative;
 
   &__title {
@@ -89,7 +89,7 @@ img {
       rgba($dark-purple, 0.6)
     );
     & > span {
-      transform: translateY(-15%);
+      transform: translateY(-5%);
     }
     display: flex;
     justify-content: center;
@@ -142,7 +142,7 @@ img {
     color: inherit;
     text-decoration: none;
     display: block;
-    padding: 1em;
+    padding: 0.6em;
   }
 
   nav {
@@ -161,7 +161,7 @@ img {
     color: inherit;
     text-decoration: none;
     display: block;
-    padding: 1em;
+    padding: 0.6em;
     position: relative;
     transition: color 0.2s;
 
@@ -264,28 +264,25 @@ img {
 }
 
 .title {
-  margin-bottom: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
   position: relative;
-  font-family: 'Pattaya', serif;
-  font-size: 2rem;
+  font-family: 'OutrunFutureBold', serif;
+  font-size: 3rem;
+  text-shadow: 0.075em 0.075em $pink;
   position: relative;
   display: inline-block;
   text-align: center;
+}
 
-  &::before {
-    content: '';
-    height: 0.3em;
-    width: 100%;
-    background-color: rgba($main-purple, 0.5);
-    position: absolute;
-    bottom: 0.15em;
-    z-index: 0;
-  }
-  span {
-    padding: 0.15em;
-    z-index: 10;
-    position: relative;
-  }
+.portfolio {
+  min-height: 100vh;
+  background-image: linear-gradient(
+      rgba($dark-purple, 0.7),
+      rgba($dark-purple, 0.7)
+    ),
+    url('/bg2.jpg');
+  background-size: 30rem;
 }
 
 .options {
@@ -305,6 +302,7 @@ img {
   }
 
   button {
+    font-size: 1.6rem;
     cursor: pointer;
     padding: 0.25em 0.5em;
     border-radius: 0.25rem;
@@ -328,39 +326,40 @@ img {
       }
     }
 
-    &--1 {
-      color: $main-purple;
-      background-color: $text-color;
-      border: 0.2rem ridge $main-purple;
-    }
     &--2 {
-      color: $text-color;
-      background-color: $main-purple;
-      border: 0.2rem ridge $text-color;
+      color: $pink;
+      background-color: $dark-purple;
+      border: 0.2rem ridge $pink;
+    }
+    &--1 {
+      color: $dark-purple;
+      background-color: $pink;
+      border: 0.2rem ridge $dark-purple;
     }
   }
 
   &__filter {
-    &--1 {
-      color: $main-purple;
-      background-color: $text-color;
-      border: 0.2rem ridge $main-purple;
-    }
     &--2 {
-      color: $text-color;
-      background-color: $main-purple;
-      border: 0.2rem ridge $text-color;
+      color: $pink;
+      background-color: $dark-purple;
+      border: 0.2rem ridge $pink;
+    }
+    &--1 {
+      color: $dark-purple;
+      background-color: $pink;
+      border: 0.2rem ridge $dark-purple;
     }
   }
 }
 
 .projects-list {
-  padding: 1em;
-  background-color: rgb(247, 247, 247);
+  padding: 2em;
+  background-color: #fff;
+  border-radius: 0.5rem;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(38rem, 1fr));
+  gap: 3rem;
   min-height: 40rem;
   justify-items: center;
 
@@ -374,7 +373,7 @@ img {
   background-color: #fff;
   border-radius: 0.25em;
   overflow: hidden;
-  box-shadow: 0 0 2rem #ccc;
+  box-shadow: 0 0 2rem rgba($dark-purple, 0.2);
 
   display: flex;
 

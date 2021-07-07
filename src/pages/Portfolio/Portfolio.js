@@ -84,9 +84,9 @@ const Portfolio = ({ portfolio }) => {
 
   return (
     <>
-      <section>
+      <section className="portfolio">
         <h2 className="title">
-          <span>Портфолио</span>
+          <span>Portfolio</span>
         </h2>
         <div className="options">
           <div className="options__left">
