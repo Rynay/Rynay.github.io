@@ -13,7 +13,6 @@ function App({ initApp }) {
 
   return (
     <>
-      {/* <Sidebar /> */}
       <Header />
 
       <main className="main">
