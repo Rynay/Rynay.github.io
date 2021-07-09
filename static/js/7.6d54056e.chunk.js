@@ -1,2 +1,0 @@
-(this.webpackJsonpportfolio=this.webpackJsonpportfolio||[]).push([[7],{60:function(e,s,t){"use strict";t.r(s),t.d(s,"default",(function(){return n}));var c=t(4),n=function(){return Object(c.jsxs)("article",{className:"resume",children:[Object(c.jsx)("h2",{className:"title resume__title",children:"Resume"}),Object(c.jsx)("p",{className:"warning",children:"The page is under construction"})]})}}}]);
-//# sourceMappingURL=7.6d54056e.chunk.js.map
