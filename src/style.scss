@@ -300,6 +300,7 @@ img {
 }
 
 .background {
+  padding: 3rem;
   z-index: 0;
   min-height: 100vh;
   background-size: 30rem;
@@ -325,6 +326,7 @@ img {
     flex-wrap: wrap;
     margin-left: auto;
     padding-left: 1em;
+
     & > * {
       margin: 0.1em;
     }
@@ -403,8 +405,42 @@ img {
   border-radius: 0.25em;
   overflow: hidden;
   box-shadow: 0 0 2rem rgba($dark-purple, 0.2);
-
+  position: relative;
   display: flex;
+
+  &__togglePopup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    opacity: 0;
+    cursor: pointer;
+    border: 0;
+    border-radius: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000, 0.75);
+    transition: opacity 0.2s;
+
+    span {
+      font-size: 5rem;
+      text-shadow: 0.05em 0.05em $pink;
+      font-family: 'OutrunFutureBold';
+      color: #fff;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    .project__togglePopup {
+      opacity: 1;
+    }
+  }
 
   &__link:link,
   &__link:visited {
@@ -437,5 +473,32 @@ img {
   }
   &__description {
     font-size: 1.4rem;
+  }
+}
+
+.fade-container {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.opacity {
+  transition: opacity 0.3s;
+}
+
+.fade-enter {
+  .opacity {
+    opacity: 0;
+  }
+}
+
+.fade-enter.fade-enter-active {
+  .opacity {
+    opacity: 1;
+  }
+}
+
+.fade-exit {
+  .opacity {
+    opacity: 0;
   }
 }

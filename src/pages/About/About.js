@@ -1,9 +1,9 @@
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 
 const About = ({ about, skills }) => {
   return (
     <article className="resume">
-      <h2 className="title resume__title">About me</h2>
+      <h2 className="title resume__title opacity">About me</h2>
       <p className="warning">The page is under construction</p>
     </article>
     // <>
@@ -41,12 +41,12 @@ const About = ({ about, skills }) => {
     //     {about && <p>{about}</p>}
     //   </section> */}
     // </>
-  );
-};
+  )
+}
 
 const mapStateToProps = (state) => ({
   about: state.data?.about,
   skills: state.data?.skills,
-});
+})
 
-export default connect(mapStateToProps)(About);
+export default connect(mapStateToProps)(About)
