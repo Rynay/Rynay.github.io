@@ -24,7 +24,10 @@ function App({ initApp }) {
       <main className="main">
         <div className="container">
           <TransitionGroup className="fade-container">
-            <CSSTransition key={location.key} classNames="fade" timeout={500}>
+            <CSSTransition
+              key={location.pathname.split('/')[0]}
+              classNames="fade"
+              timeout={500}>
               <Switch>
                 <Route path="/" exact component={Greeting} />
 
@@ -37,6 +40,7 @@ function App({ initApp }) {
                   <Route path="/portfolio">
                     <>
                       <Portfolio />
+
                       <Route exact path="/portfolio/:name" component={Popup} />
                     </>
                   </Route>
