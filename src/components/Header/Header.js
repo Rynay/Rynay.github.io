@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 const links = [
   {
     anchor: '/portfolio',
@@ -12,7 +12,7 @@ const links = [
     anchor: '/about',
     children: 'about me',
   },
-];
+]
 
 const Header = () => {
   return (
@@ -23,7 +23,7 @@ const Header = () => {
           to="/"
           exact
           className="header__home"
-          activeClassName="header__home--active">
+          activeClassName="header__home--active disabled">
           KL
         </NavLink>
         <ul className="header__list">
@@ -32,7 +32,7 @@ const Header = () => {
               <NavLink
                 to={link.anchor}
                 className="header__link"
-                activeClassName="header__link--active">
+                activeClassName="header__link--active disabled">
                 {link.children}
               </NavLink>
             </li>
@@ -40,7 +40,7 @@ const Header = () => {
         </ul>
       </nav>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

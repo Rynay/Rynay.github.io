@@ -151,6 +151,7 @@ img {
     }
 
     &--active {
+      pointer-events: none;
       color: $pink;
     }
   }
@@ -196,6 +197,7 @@ img {
     }
 
     &--active {
+      pointer-events: none;
       color: $pink;
       &::after {
         width: 0 !important;
