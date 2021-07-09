@@ -70,7 +70,7 @@ img {
 
 .greeting {
   min-height: 100vh;
-  background: url('/main-bg2.jpg') center 35% / cover $dark-purple;
+  background: center 35% / cover $dark-purple;
   position: relative;
 
   &__title {
@@ -133,7 +133,7 @@ img {
   left: 0;
   right: 0;
   z-index: 10;
-  background-color: rgba($dark-purple, 0.85);
+  background-color: rgba($dark-purple, 0.9);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -144,6 +144,7 @@ img {
     text-decoration: none;
     display: block;
     padding: 0 0.6em;
+    transition: color 0.2s;
     &:hover,
     &:focus {
       color: $pink;
@@ -284,16 +285,25 @@ img {
   text-align: center;
 }
 
-.portfolio,
-.about,
-.resume {
-  min-height: 100vh;
+.background__overlay {
   background-image: linear-gradient(
-      rgba($dark-purple, 0.7),
-      rgba($dark-purple, 0.7)
-    ),
-    url('/bg2.jpg');
+    rgba($dark-purple, 0.7),
+    rgba($dark-purple, 0.7)
+  );
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -2;
+}
+
+.background {
+  z-index: -1;
+  min-height: 100vh;
   background-size: 30rem;
+  position: relative;
 
   .warning {
     font-family: 'OutrunFutureItalicBold';

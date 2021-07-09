@@ -1,26 +1,17 @@
-import { connect } from 'react-redux';
-import * as AC from './redux/AC';
-import { lazy, useEffect, Suspense } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Header from './components/Header';
-
-const Portfolio = lazy(() =>
-  import(/* webpackPreload: true */ './pages/Portfolio/index')
-);
-const Greeting = lazy(() =>
-  import(/* webpackPreload: true */ './pages/Greeting/index')
-);
-const About = lazy(() =>
-  import(/* webpackPreload: true */ './pages/About/index')
-);
-const Resume = lazy(() =>
-  import(/* webpackPreload: true */ './pages/Resume/index')
-);
+import { connect } from 'react-redux'
+import * as AC from './redux/AC'
+import { useEffect } from 'react'
+import { Switch, Route } from 'react-router-dom'
+import Header from './components/Header'
+import Portfolio from './pages/Portfolio'
+import Greeting from './pages/Greeting'
+import About from './pages/About'
+import Resume from './pages/Resume'
 
 function App({ initApp }) {
   useEffect(() => {
-    initApp();
-  }, []);
+    initApp()
+  }, [])
 
   return (
     <>
@@ -28,24 +19,29 @@ function App({ initApp }) {
 
       <main className="main">
         <div className="container">
-          <Suspense fallback={<div>Loading...</div>}>
-            <Switch>
-              <Route path="/" exact component={Greeting} />
+          <Switch>
+            <Route path="/" exact component={Greeting} />
+            <div
+              style={{
+                backgroundImage: "url('/images/bg2.jpg')",
+              }}
+              className="background">
+              <div className="background__overlay" />
               <Route path="/portfolio" component={Portfolio} />
               <Route path="/about" component={About} />
               <Route path="/resume" component={Resume} />
-            </Switch>
-          </Suspense>
+            </div>
+          </Switch>
         </div>
       </main>
     </>
-  );
+  )
 }
 
 const mapDispatchToProps = (dispatch) => ({
   initApp: () => {
-    dispatch(AC.initApp());
+    dispatch(AC.initApp())
   },
-});
+})
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App)

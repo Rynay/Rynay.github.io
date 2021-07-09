@@ -1,6 +1,8 @@
 const Greeting = () => {
   return (
-    <article className="greeting">
+    <article
+      style={{ backgroundImage: "url('images/main-bg2.jpg')" }}
+      className="greeting">
       <h1 className="greeting__title">
         <span>
           Hey! My name is <span className="greeting__title--pink">Kseniia</span>{' '}
@@ -10,7 +12,7 @@ const Greeting = () => {
         </span>
       </h1>
     </article>
-  );
-};
+  )
+}
 
-export default Greeting;
+export default Greeting
