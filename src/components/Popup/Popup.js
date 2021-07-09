@@ -1,15 +1,15 @@
-import { useLayoutEffect, useState } from 'react'
-import { connect } from 'react-redux'
+import { useLayoutEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
-const Popup = ({ portfolio }) => {
+const Popup = ({ setTargetProjectName, project }) => {
   const params = useParams()
-  const [project, setProject] = useState({})
 
   useLayoutEffect(() => {
-    if (!portfolio) return
-    const target = portfolio.find((project) => project.name === params.name)
-    setProject(target)
+    setTargetProjectName('')
+  }, [])
+
+  useLayoutEffect(() => {
+    setTargetProjectName(params.name)
   }, [params.name])
 
   return (
@@ -34,8 +34,4 @@ const Popup = ({ portfolio }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  portfolio: state.data?.portfolio,
-})
-
-export default connect(mapStateToProps)(Popup)
+export default Popup

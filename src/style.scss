@@ -487,6 +487,10 @@ img {
   transition: opacity 0.3s;
 }
 
+.static {
+  transition: none;
+}
+
 .fade-enter {
   .opacity {
     opacity: 0;
@@ -499,8 +503,26 @@ img {
   }
 }
 
-.fade-exit {
+.static-exit {
   .opacity {
-    opacity: 0;
+    opacity: 1;
+  }
+}
+
+.static-enter {
+  .opacity {
+    opacity: 1;
+  }
+}
+
+.static-enter.static-enter-active {
+  .opacity {
+    opacity: 1;
+  }
+}
+
+.static-exit {
+  .opacity {
+    opacity: 1;
   }
 }

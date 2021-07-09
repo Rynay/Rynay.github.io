@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
 import { ProjectsList } from './ProjectsList'
 
-const Portfolio = ({ portfolio }) => {
+const Portfolio = ({ portfolio, disableAnimation, enableAnimation }) => {
   const [filterDependencies, setFilterDependencies] = useState([])
   const [options, setOptions] = useState({
     sortedIn: 'Asc',
@@ -100,6 +100,8 @@ const Portfolio = ({ portfolio }) => {
           </div>
         </div>
         <ProjectsList
+          disableAnimation={disableAnimation}
+          enableAnimation={enableAnimation}
           projects={portfolio}
           options={options}
           dependencies={filterDependencies}
